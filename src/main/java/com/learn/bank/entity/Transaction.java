@@ -1,12 +1,13 @@
 package com.learn.bank.entity;
 
-import lombok.Data;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
+import lombok.Builder;
+import lombok.Data;
+@Builder
 @Data
 public class Transaction {
     private static final SimpleDateFormat dateFormat
@@ -14,9 +15,9 @@ public class Transaction {
     
     private Type type;
     private String date;
-    private String accountNumber;
+    private Integer accountNumber;
     private String currency;
-    private String amount;
+    private Double amount;
     private String merchantName;
     private String merchantLogo;
 

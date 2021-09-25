@@ -1,12 +1,14 @@
 package com.learn.bank.service.impl;
 
 
-import com.learn.bank.entity.Transaction;
-import com.learn.bank.service.TransactionService;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.learn.bank.entity.Transaction;
+import com.learn.bank.entity.Type;
+import com.learn.bank.service.TransactionService;
 
 /**
  * @author wateroader
@@ -15,8 +17,18 @@ import java.util.List;
 @Service
 public class TransactionServiceImpl implements TransactionService {
     @Override
-    public List<Transaction> findAllByAccountNumber(String accountNumber) {
-        ArrayList<Transaction> transactions = new ArrayList<>();
-        return transactions;
+    public List<Transaction> findAllByAccountNumber(Integer accountNumber) {
+        return List.of(
+                Transaction
+                        .builder()
+                        .type(Type.CHEESE)
+                        .date(new Date().toString())
+                        .accountNumber(accountNumber)
+                        .currency("USD")
+                        .amount(100.00)
+                        .merchantName("acme")
+                        .merchantLogo("images/acme-logo.png")
+                        .build()
+        );
     }
 }

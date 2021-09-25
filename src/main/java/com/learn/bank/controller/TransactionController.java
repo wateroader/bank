@@ -22,7 +22,7 @@ import com.learn.bank.service.TransactionService;
  * @date 2021/09/25
  */
 @RestController
-@RequestMapping(path = "/transactions", produces = "application/json")
+@RequestMapping("/api/v1/transactions")
 @CrossOrigin(origins = "*")
 public class TransactionController {
     final TransactionService transactionService;
@@ -35,7 +35,7 @@ public class TransactionController {
     }
 
     @GetMapping("/{accountNumber}")
-    public List<TransactionDTO> listTransaction(@PathVariable("accountNumber") String accountNumber) {
+    public List<TransactionDTO> listTransaction(@PathVariable("accountNumber") Integer accountNumber) {
         List<Transaction> transactions = transactionService.findAllByAccountNumber(accountNumber);
         return transactions.stream()
                 .map(this::convertToDTO)

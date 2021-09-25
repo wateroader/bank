@@ -1,11 +1,11 @@
 package com.learn.bank.entity;
 
-import lombok.Data;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
+
+import lombok.Data;
 
 @Data
 public class TransactionDTO {
@@ -14,9 +14,9 @@ public class TransactionDTO {
 
     private Type type;
     private String date;
-    private String accountNumber;
+    private Integer accountNumber;
     private String currency;
-    private String amount;
+    private Double amount;
     private String merchantName;
     private String merchantLogo;
 
